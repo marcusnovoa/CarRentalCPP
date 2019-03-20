@@ -8,6 +8,11 @@
 
 #include "Reservation.hpp"
 
+Reservation::Reservation() : name{"N/A"},
+                             vehicleRented{"N/A"}
+{
+}
+
 Reservation::Reservation(string name, string vehicle) : name{name},
                                                         vehicleRented{vehicle}
 {

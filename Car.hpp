@@ -37,7 +37,7 @@ public:
   Car(string plateNumber, string make, string model);
   Car(string plateNumber, string make, string model, double price);
   ~Car() {}
-  string GetInfo()
+  string getInfo()
   {
     cout << "Plate Number: " << this->plateNumber << ", ";
     cout << "Make: " << this->make << ", ";
@@ -47,7 +47,7 @@ public:
     cout << "Available: " << (this->isAvailable ? "Yes" : "No");
     return "";
   }
-  void SetAvailable(bool);
+  void setAvailable(bool);
   bool operator<(const Car &other);
   bool operator==(const Car &other);
 };

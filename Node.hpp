@@ -2,11 +2,13 @@
 #define Node_hpp
 
 #include "Car.hpp"
+#include "Reservation.hpp"
 
+template <typename T>
 struct Node
 {
-    Car data;
-    Node *next;
+  T data;
+  Node *next;
 };
 
 #endif

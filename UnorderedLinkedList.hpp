@@ -14,33 +14,48 @@
 #include "UnorderedList.hpp"
 #include "Node.hpp"
 
+template <class T>
 class UnorderedLinkedList : public UnorderedList
 {
 private:
 	int length;
-	Node *currentPos;
-	Node *head;
+	Node<T> *currentPos;
+	Node<T> *head;
 
 public:
 	UnorderedLinkedList() : currentPos{nullptr}, head{nullptr}, length{0} {}
-	~UnorderedLinkedList();
 
-	void MakeEmpty();
+	void MakeEmpty()
+	{
+		Node<T> *temp = nullptr;
+		while (head != nullptr)
+		{
+			temp = head;
+			head = head->next;
+			delete temp;
+		}
+		length = 0;
+	}
 
-	template <class T>
+	~UnorderedLinkedList<T>()
+	{
+		MakeEmpty();
+	}
+
+	// template <class T>
 	void PutItem(T item)
 	{
-		Node *temp = new Node;
+		Node<T> *temp = new Node<T>;
 		temp->data = item;
 		temp->next = head;
 		head = temp;
 		length++;
 	}
 
-	template <class T>
+	// template <class T>
 	T *GetItem(T item)
 	{
-		Node *temp = head;
+		Node<T> *temp = head;
 		while (temp != nullptr)
 		{
 			if (temp->data == item)
@@ -53,13 +68,13 @@ public:
 		return nullptr;
 	}
 
-	template <class T>
+	// template <class T>
 	void DeleteItem(T item)
 	{
 		if (head == nullptr)
 			return;
 
-		Node *temp;
+		Node<T> *temp;
 		if (head->data == item)
 		{
 			temp = head->next;
@@ -73,7 +88,7 @@ public:
 		{
 			if (temp->next->data == item)
 			{
-				Node *temp2 = temp->next;
+				Node<T> *temp2 = temp->next;
 				temp->next = temp->next->next;
 				delete temp2;
 				length--;
@@ -83,9 +98,12 @@ public:
 		}
 	}
 
-	void ResetList();
+	void ResetList()
+	{
+		currentPos = nullptr;
+	}
 
-	template <class T>
+	// template <class T>
 	T *GetNextItem()
 	{
 		if (currentPos == nullptr)
@@ -96,9 +114,39 @@ public:
 		return &(currentPos->data);
 	}
 
-	int GetLength();
+	int GetLength()
+	{
+		return length;
+	}
+
+	friend std::ostream &operator<<(std::ostream &os, UnorderedLinkedList<T> &o)
+	{
+		o.ResetList();
+		os << "List: [";
+		for (int i = 0; i < o.GetLength(); ++i)
+		{
+			os << "(" << *o.GetNextItem() << ")";
+			if (i < o.GetLength() - 1)
+				os << ", ";
+		}
+		os << "]";
+		return os;
+	}
 };
 
-std::ostream &operator<<(std::ostream &os, UnorderedLinkedList &o);
+// template <class T>
+// std::ostream &operator<<(std::ostream &os, UnorderedLinkedList<T> &o)
+// {
+// 	o.ResetList();
+// 	os << "List: [";
+// 	for (int i = 0; i < o.GetLength(); ++i)
+// 	{
+// 		os << "(" << *o.GetNextItem<T>() << ")";
+// 		if (i < o.GetLength() - 1)
+// 			os << ", ";
+// 	}
+// 	os << "]";
+// 	return os;
+// }
 
 #endif /* UnorderedLinkedList_hpp */

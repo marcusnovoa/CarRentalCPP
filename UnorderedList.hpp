@@ -19,15 +19,15 @@ class UnorderedList
 {
 public:
 	virtual void MakeEmpty() = 0;
-	template <class T>
-	void PutItem(T item);
-	template <class T>
-	T *GetItem(T item);
-	template <class T>
-	void DeleteItem(T item);
+	// template <class T>
+	// void PutItem(T item);
+	// template <class T>
+	// T *GetItem(T item);
+	// template <class T>
+	// void DeleteItem(T item);
 	virtual void ResetList() = 0;
-	template <class T>
-	T *GetNextItem();
+	// template <class T>
+	// T *GetNextItem();
 	virtual int GetLength() = 0;
 	virtual ~UnorderedList(){};
 };

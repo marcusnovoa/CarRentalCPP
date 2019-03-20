@@ -8,14 +8,17 @@
 
 #include <iostream>
 #include "Car.hpp"
+#include "Reservation.hpp"
 #include "Program.hpp"
 #include "UnorderedLinkedList.hpp"
 
 int main(int argc, char const *argv[])
 {
-  auto ull = new UnorderedLinkedList();
-  Program::CarsList(ull);
-  Program::DisplayMenu(ull);
-  delete ull;
+  auto carList = new UnorderedLinkedList<Car>();
+  auto resList = new UnorderedLinkedList<Reservation>();
+  Program<Car, Reservation>::CarsList(carList, resList);
+  Program<Car, Reservation>::DisplayMenu(carList, resList);
+  delete carList;
+  delete resList;
   return 0;
 }

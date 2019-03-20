@@ -8,17 +8,18 @@
 
 #include "UnorderedLinkedList.hpp"
 
-void UnorderedLinkedList::MakeEmpty()
-{
-	Node *temp = nullptr;
-	while (head != nullptr)
-	{
-		temp = head;
-		head = head->next;
-		delete temp;
-	}
-	length = 0;
-}
+// template <class T>
+// void UnorderedLinkedList<T>::MakeEmpty()
+// {
+// 	Node<T> *temp = nullptr;
+// 	while (head != nullptr)
+// 	{
+// 		temp = head;
+// 		head = head->next;
+// 		delete temp;
+// 	}
+// 	length = 0;
+// }
 
 // template <class T>
 // void UnorderedLinkedList::PutItem(T item)
@@ -76,10 +77,11 @@ void UnorderedLinkedList::MakeEmpty()
 // 	}
 // }
 
-void UnorderedLinkedList::ResetList()
-{
-	currentPos = nullptr;
-}
+// template <class T>
+// void UnorderedLinkedList<T>::ResetList()
+// {
+// 	currentPos = nullptr;
+// }
 
 // template <class T>
 // T *UnorderedLinkedList::GetNextItem()
@@ -92,26 +94,29 @@ void UnorderedLinkedList::ResetList()
 // 	return &(currentPos->data);
 // }
 
-int UnorderedLinkedList::GetLength()
-{
-	return length;
-}
+// template <class T>
+// int UnorderedLinkedList<T>::GetLength()
+// {
+// 	return length;
+// }
 
-UnorderedLinkedList::~UnorderedLinkedList()
-{
-	MakeEmpty();
-}
+// template <class T>
+// UnorderedLinkedList<T>::~UnorderedLinkedList<T>()
+// {
+// 	MakeEmpty();
+// }
 
-std::ostream &operator<<(std::ostream &os, UnorderedLinkedList &o)
-{
-	o.ResetList();
-	os << "List: [";
-	for (int i = 0; i < o.GetLength(); ++i)
-	{
-		os << "(" << *o.GetNextItem<Car>() << ")";
-		if (i < o.GetLength() - 1)
-			os << ", ";
-	}
-	os << "]";
-	return os;
-}
+// template <class T>
+// std::ostream &operator<<(std::ostream &os, UnorderedLinkedList<T> &o)
+// {
+// 	o.ResetList();
+// 	os << "List: [";
+// 	for (int i = 0; i < o.GetLength(); ++i)
+// 	{
+// 		os << "(" << *o->template GetNextItem<T>() << ")";
+// 		if (i < o.GetLength() - 1)
+// 			os << ", ";
+// 	}
+// 	os << "]";
+// 	return os;
+// }

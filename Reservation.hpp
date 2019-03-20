@@ -19,6 +19,7 @@ private:
   string name;          // Key
   string vehicleRented; // Plate of the car which is our key for the list
 public:
+  Reservation();
   Reservation(string name, string vehicle);
   ~Reservation() {}
   string GetInfo()

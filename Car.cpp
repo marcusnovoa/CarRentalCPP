@@ -43,7 +43,7 @@ Car::Car(string plateNumber, string make, string model, double price) : plateNum
 {
 }
 
-void Car::SetAvailable(bool available)
+void Car::setAvailable(bool available)
 {
   this->isAvailable = available;
 }
@@ -60,6 +60,6 @@ bool Car::operator==(const Car &other)
 
 std::ostream &operator<<(std::ostream &os, Car &c)
 {
-  os << "Car: [" << c.GetInfo() << "]";
+  os << "Car: [" << c.getInfo() << "]";
   return os;
 }

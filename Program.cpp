@@ -12,7 +12,7 @@
 
 using namespace std;
 
-void Program::DisplayMenu(UnorderedList *ul)
+void Program::DisplayMenu(UnorderedLinkedList *ul) // ADD BOTH LISTS (CL AND RL)
 {
   int choice;
   bool menuActive = true;
@@ -54,6 +54,7 @@ void Program::DisplayMenu(UnorderedList *ul)
     case 3:
       RemoveCar(ul);
       break;
+    // APPLY CASE 4
     case 7:
       cout << "Exiting...\n\n";
       menuActive = false;
@@ -62,19 +63,19 @@ void Program::DisplayMenu(UnorderedList *ul)
   }
 }
 
-void Program::CarsList(UnorderedList *ul)
+void Program::CarsList(UnorderedLinkedList *ul)
 {
   // cout << "List Length: " << ul->GetLength() << endl;
   // auto cars = {Car(), Car(), Car()};
   auto cars = {Car("A2GH78", "Honda", "Civic"), Car("B3G78A", "Subaru", "WRX STI"), Car("C41AWL", "Toyota", "Corolla")};
   for (auto i : cars)
-    ul->PutCar(i);
+    ul->PutItem(i);
   cout << ul->GetLength() << " cars created!" << endl;
   // cout << "List Length: " << ul->GetLength() << endl;
   // cout << *ul << endl;
 }
 
-void Program::AddCar(UnorderedList *ul)
+void Program::AddCar(UnorderedLinkedList *ul)
 {
   string plate, make, model;
   double price;
@@ -91,13 +92,13 @@ void Program::AddCar(UnorderedList *ul)
   cout << "Price-per-day: ";
   cin >> price;
 
-  ul->PutCar(Car(plate, make, model, price));
+  ul->PutItem(Car(plate, make, model, price));
   cout << "Car has been added to the list!" << endl;
 
   Program::ReturnToMenu(ul);
 }
 
-void Program::RemoveCar(UnorderedList *ul)
+void Program::RemoveCar(UnorderedLinkedList *ul)
 {
   string plate;
   cout << "Please enter the license plate number of the vehicle you wish to delete:" << endl;
@@ -105,9 +106,9 @@ void Program::RemoveCar(UnorderedList *ul)
   cout << endl;
 
   auto c = new Car(plate);
-  if (ul->GetCar(*c) != nullptr)
+  if (ul->GetItem(*c) != nullptr)
   {
-    ul->DeleteCar(*c);
+    ul->DeleteItem(*c);
     cout << "Car with license plate number " << plate << " has successfully been removed from the list.\n\n";
   }
   else
@@ -117,7 +118,7 @@ void Program::RemoveCar(UnorderedList *ul)
   }
 }
 
-void Program::ReturnToMenu(UnorderedList *ul)
+void Program::ReturnToMenu(UnorderedLinkedList *ul)
 {
   char returnToMenu;
   cout << "Press Enter key to return to menu..." << endl;

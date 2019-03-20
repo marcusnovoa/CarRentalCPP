@@ -20,73 +20,77 @@ void UnorderedLinkedList::MakeEmpty()
 	length = 0;
 }
 
-void UnorderedLinkedList::PutCar(Car car)
-{
-	Node *temp = new Node;
-	temp->data = car;
-	temp->next = head;
-	head = temp;
-	length++;
-}
+// template <class T>
+// void UnorderedLinkedList::PutItem(T item)
+// {
+// 	Node *temp = new Node;
+// 	temp->data = item;
+// 	temp->next = head;
+// 	head = temp;
+// 	length++;
+// }
 
-Car *UnorderedLinkedList::GetCar(Car car)
-{
-	Node *temp = head;
-	while (temp != nullptr)
-	{
-		if (temp->data == car)
-		{
-			car = temp->data;
-			return &(temp->data);
-		}
-		temp = temp->next;
-	}
-	return nullptr;
-}
+// template <class T>
+// T *UnorderedLinkedList::GetItem(T item)
+// {
+// 	Node *temp = head;
+// 	while (temp != nullptr)
+// 	{
+// 		if (temp->data == item)
+// 		{
+// 			item = temp->data;
+// 			return &(temp->data);
+// 		}
+// 		temp = temp->next;
+// 	}
+// 	return nullptr;
+// }
 
-void UnorderedLinkedList::DeleteCar(Car car)
-{
-	if (head == nullptr)
-		return;
+// template <class T>
+// void UnorderedLinkedList::DeleteItem(T item)
+// {
+// 	if (head == nullptr)
+// 		return;
 
-	Node *temp;
-	if (head->data == car)
-	{
-		temp = head->next;
-		delete head;
-		head = temp;
-		length--;
-		return;
-	}
-	temp = head;
-	while (temp->next != nullptr)
-	{
-		if (temp->next->data == car)
-		{
-			Node *temp2 = temp->next;
-			temp->next = temp->next->next;
-			delete temp2;
-			length--;
-			return;
-		}
-		temp = temp->next;
-	}
-}
+// 	Node *temp;
+// 	if (head->data == item)
+// 	{
+// 		temp = head->next;
+// 		delete head;
+// 		head = temp;
+// 		length--;
+// 		return;
+// 	}
+// 	temp = head;
+// 	while (temp->next != nullptr)
+// 	{
+// 		if (temp->next->data == item)
+// 		{
+// 			Node *temp2 = temp->next;
+// 			temp->next = temp->next->next;
+// 			delete temp2;
+// 			length--;
+// 			return;
+// 		}
+// 		temp = temp->next;
+// 	}
+// }
 
 void UnorderedLinkedList::ResetList()
 {
 	currentPos = nullptr;
 }
 
-Car *UnorderedLinkedList::GetNextCar()
-{
-	if (currentPos == nullptr)
-		currentPos = head;
-	else
-		currentPos = currentPos->next;
+// template <class T>
+// T *UnorderedLinkedList::GetNextItem()
+// {
+// 	if (currentPos == nullptr)
+// 		currentPos = head;
+// 	else
+// 		currentPos = currentPos->next;
 
-	return &(currentPos->data);
-}
+// 	return &(currentPos->data);
+// }
 
 int UnorderedLinkedList::GetLength()
 {
@@ -96,4 +100,18 @@ int UnorderedLinkedList::GetLength()
 UnorderedLinkedList::~UnorderedLinkedList()
 {
 	MakeEmpty();
+}
+
+std::ostream &operator<<(std::ostream &os, UnorderedLinkedList &o)
+{
+	o.ResetList();
+	os << "List: [";
+	for (int i = 0; i < o.GetLength(); ++i)
+	{
+		os << "(" << *o.GetNextItem<Car>() << ")";
+		if (i < o.GetLength() - 1)
+			os << ", ";
+	}
+	os << "]";
+	return os;
 }

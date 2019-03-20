@@ -16,11 +16,11 @@
 class Program
 {
 public:
-  static void DisplayMenu(UnorderedList *ul);
-  static void CarsList(UnorderedList *ul);
-  static void AddCar(UnorderedList *ul);
-  static void RemoveCar(UnorderedList *ul);
-  static void ReturnToMenu(UnorderedList *ul);
+  static void DisplayMenu(UnorderedLinkedList *ul);
+  static void CarsList(UnorderedLinkedList *ul);
+  static void AddCar(UnorderedLinkedList *ul);
+  static void RemoveCar(UnorderedLinkedList *ul);
+  static void ReturnToMenu(UnorderedLinkedList *ul);
 };
 
 #endif /* Program.hpp */

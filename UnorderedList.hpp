@@ -13,20 +13,25 @@
 
 #include <iostream>
 #include <string>
-#include "Car.hpp"
+// #include "Item.hpp"
 
 class UnorderedList
 {
 public:
 	virtual void MakeEmpty() = 0;
-	virtual void PutCar(Car car) = 0;
-	virtual Car *GetCar(Car car) = 0;
-	virtual void DeleteCar(Car car) = 0;
+	template <class T>
+	void PutItem(T item);
+	template <class T>
+	T *GetItem(T item);
+	template <class T>
+	void DeleteItem(T item);
 	virtual void ResetList() = 0;
-	virtual Car *GetNextCar() = 0;
+	template <class T>
+	T *GetNextItem();
 	virtual int GetLength() = 0;
 	virtual ~UnorderedList(){};
 };
-std::ostream &operator<<(std::ostream &os, UnorderedList &o);
+
+// std::ostream &operator<<(std::ostream &os, UnorderedList &o);
 
 #endif /* UnorderedList_hpp */

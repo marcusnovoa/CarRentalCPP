@@ -142,17 +142,17 @@ public:
       Program<T, T2>::returnToMenu(cl, rl);
     }
   }
-  static void carsList(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
-  {
-    // cout << "List Length: " << cl->GetLength() << endl;
-    // auto cars = {Car(), Car(), Car()};
-    auto cars = {Car("A2GH78", "Honda", "Civic"), Car("B3G78A", "Subaru", "WRX STI"), Car("C41AWL", "Toyota", "Corolla")};
-    for (auto i : cars)
-      cl->PutItem(i);
-    cout << cl->GetLength() << " cars created!" << endl;
-    // cout << "List Length: " << cl->GetLength() << endl;
-    // cout << *cl << endl;
-  }
+  // static void carsList(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
+  // {
+  //   // cout << "List Length: " << cl->GetLength() << endl;
+  //   // auto cars = {Car(), Car(), Car()};
+  //   auto cars = {Car("A2GH78", "Honda", "Civic"), Car("B3G78A", "Subaru", "WRX STI"), Car("C41AWL", "Toyota", "Corolla")};
+  //   for (auto i : cars)
+  //     cl->PutItem(i);
+  //   cout << cl->GetLength() << " cars created!" << endl;
+  //   // cout << "List Length: " << cl->GetLength() << endl;
+  //   // cout << *cl << endl;
+  // }
 
   /***** RESERVATIONS *****/
   static void addReservation(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)

@@ -15,7 +15,7 @@ using namespace std;
 
 /***** MENU *****/
 // template <class T, class T2>
-// void Program<T, T2>::DisplayMenu(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
+// void Program<T, T2>::displayMenu(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
 // {
 //   int choice;
 //   bool menuActive = true;
@@ -43,30 +43,30 @@ using namespace std;
 //       if (cl->GetLength() < 1)
 //       {
 //         cout << "There are no cars in the list." << endl;
-//         Program<T, T2>::ReturnToMenu(cl, rl);
+//         Program<T, T2>::returnToMenu(cl, rl);
 //       }
 //       else
 //       {
 //         cout << *cl << endl;
-//         Program<T, T2>::ReturnToMenu(cl, rl);
+//         Program<T, T2>::returnToMenu(cl, rl);
 //       }
 //       break;
 //     case 2:
-//       AddCar(cl, rl);
+//       addCar(cl, rl);
 //       break;
 //     case 3:
-//       RemoveCar(cl, rl);
+//       removeCar(cl, rl);
 //       break;
 //     case 4:
 //       if (rl->GetLength() < 1)
 //       {
 //         cout << "There are no current reservations." << endl;
-//         Program<T, T2>::ReturnToMenu(cl, rl);
+//         Program<T, T2>::returnToMenu(cl, rl);
 //       }
 //       else
 //       {
 //         cout << *rl << endl;
-//         Program<T, T2>::ReturnToMenu(cl, rl);
+//         Program<T, T2>::returnToMenu(cl, rl);
 //       }
 //       break;
 //     case 5:
@@ -80,7 +80,7 @@ using namespace std;
 // }
 
 // template <class T, class T2>
-// void Program<T, T2>::ReturnToMenu(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
+// void Program<T, T2>::returnToMenu(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
 // {
 //   char returnToMenu;
 //   cout << "Press Enter key to return to menu..." << endl;
@@ -88,7 +88,7 @@ using namespace std;
 //   switch (returnToMenu)
 //   {
 //   case 10 | 13:
-//     Program<T, T2>::DisplayMenu(cl, rl);
+//     Program<T, T2>::displayMenu(cl, rl);
 //   default:
 //     returnToMenu = getchar();
 //   }
@@ -96,7 +96,7 @@ using namespace std;
 
 /***** CARS *****/
 // template <class T, class T2>
-// void Program<T, T2>::CarsList(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
+// void Program<T, T2>::carsList(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
 // {
 //   // cout << "List Length: " << cl->GetLength() << endl;
 //   // auto cars = {Car(), Car(), Car()};
@@ -109,7 +109,7 @@ using namespace std;
 // }
 
 // template <class T, class T2>
-// void Program<T, T2>::AddCar(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
+// void Program<T, T2>::addCar(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
 // {
 //   string plate, make, model;
 //   double price;
@@ -129,11 +129,11 @@ using namespace std;
 //   cl->PutItem(Car(plate, make, model, price));
 //   cout << "Car has been added to the list!" << endl;
 
-//   Program<T, T2>::ReturnToMenu(cl, rl);
+//   Program<T, T2>::returnToMenu(cl, rl);
 // }
 
 // template <class T, class T2>
-// void Program<T, T2>::RemoveCar(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
+// void Program<T, T2>::removeCar(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
 // {
 //   string plate;
 //   cout << "Please enter the license plate number of the vehicle you wish to delete:" << endl;
@@ -149,13 +149,13 @@ using namespace std;
 //   else
 //   {
 //     cout << "Car was not found within the list." << endl;
-//     Program<T, T2>::ReturnToMenu(cl, rl);
+//     Program<T, T2>::returnToMenu(cl, rl);
 //   }
 // }
 
 /***** RESERVATIONS *****/
 // template <class T, class T2>
-// void Program<T, T2>::AddReservation(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
+// void Program<T, T2>::addReservation(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
 // {
 //   string name, plate;
 //   cout << "Please enter all reservation information:" << endl;
@@ -167,5 +167,5 @@ using namespace std;
 //   rl->PutItem(Reservation(name, plate));
 //   cout << "Reservation has been added to the list!" << endl;
 
-//   Program<T, T2>::ReturnToMenu(cl, rl);
+//   Program<T, T2>::returnToMenu(cl, rl);
 // }

@@ -18,7 +18,7 @@ class Program
 {
 public:
   /***** MENU *****/
-  static void DisplayMenu(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
+  static void displayMenu(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
   {
     int choice;
     bool menuActive = true;
@@ -46,34 +46,34 @@ public:
         if (cl->GetLength() < 1)
         {
           cout << "There are no cars in the list." << endl;
-          Program<T, T2>::ReturnToMenu(cl, rl);
+          Program<T, T2>::returnToMenu(cl, rl);
         }
         else
         {
           cout << *cl << endl;
-          Program<T, T2>::ReturnToMenu(cl, rl);
+          Program<T, T2>::returnToMenu(cl, rl);
         }
         break;
       case 2:
-        AddCar(cl, rl);
+        addCar(cl, rl);
         break;
       case 3:
-        RemoveCar(cl, rl);
+        removeCar(cl, rl);
         break;
       case 4:
         if (rl->GetLength() < 1)
         {
           cout << "There are no current reservations." << endl;
-          Program<T, T2>::ReturnToMenu(cl, rl);
+          Program<T, T2>::returnToMenu(cl, rl);
         }
         else
         {
           cout << *rl << endl;
-          Program<T, T2>::ReturnToMenu(cl, rl);
+          Program<T, T2>::returnToMenu(cl, rl);
         }
         break;
       case 5:
-        AddReservation(cl, rl);
+        addReservation(cl, rl);
         break;
       case 7:
         cout << "Exiting...\n\n";
@@ -83,7 +83,7 @@ public:
     }
   }
 
-  static void ReturnToMenu(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
+  static void returnToMenu(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
   {
     char returnToMenu;
     cout << "Press Enter key to return to menu..." << endl;
@@ -91,14 +91,14 @@ public:
     switch (returnToMenu)
     {
     case 10 | 13:
-      Program<T, T2>::DisplayMenu(cl, rl);
+      Program<T, T2>::displayMenu(cl, rl);
     default:
       returnToMenu = getchar();
     }
   }
 
   /***** CARS *****/
-  static void AddCar(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
+  static void addCar(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
   {
     string plate, make, model;
     double price;
@@ -118,9 +118,9 @@ public:
     cl->PutItem(Car(plate, make, model, price));
     cout << "Car has been added to the list!" << endl;
 
-    Program<T, T2>::ReturnToMenu(cl, rl);
+    Program<T, T2>::returnToMenu(cl, rl);
   }
-  static void RemoveCar(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
+  static void removeCar(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
   {
     string plate;
     cout << "Please enter the license plate number of the vehicle you wish to delete:" << endl;
@@ -136,10 +136,10 @@ public:
     else
     {
       cout << "Car was not found within the list." << endl;
-      Program<T, T2>::ReturnToMenu(cl, rl);
+      Program<T, T2>::returnToMenu(cl, rl);
     }
   }
-  static void CarsList(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
+  static void carsList(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
   {
     // cout << "List Length: " << cl->GetLength() << endl;
     // auto cars = {Car(), Car(), Car()};
@@ -152,7 +152,7 @@ public:
   }
 
   /***** RESERVATIONS *****/
-  static void AddReservation(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
+  static void addReservation(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
   {
     string name, plate;
     cout << "Please enter all reservation information:" << endl;
@@ -162,10 +162,22 @@ public:
     cout << "Rented Vehicle License Plate Number: ";
     cin >> plate;
 
-    rl->PutItem(Reservation(name, plate));
-    cout << "Reservation has been added to the list!" << endl;
+    // Find Car
+    auto c = new Car(plate);
+    if (cl->GetItem(*c) != nullptr)
+    {
+      auto *car = cl->GetItem(*c);
+      car->setAvailable(false);
 
-    Program<T, T2>::ReturnToMenu(cl, rl);
+      rl->PutItem(Reservation(name, plate));
+      cout << "Car with license plate number " << plate << " has successfully been reserved.\n\n";
+    }
+    else
+    {
+      cout << "Car was not found within the list." << endl;
+    }
+
+    Program<T, T2>::returnToMenu(cl, rl);
   }
 };
 

@@ -19,8 +19,19 @@ private:
   string name;          // Key
   string vehicleRented; // Plate of the car which is our key for the list
 public:
-  Reservation() {}
+  Reservation();
+  Reservation(string name, string vehicle);
   ~Reservation() {}
+  string getInfo()
+  {
+    cout << "Name: " << this->name << ", ";
+    cout << "Rented Vehicle: " << this->vehicleRented;
+    return "";
+  }
+  bool operator<(const Reservation &other);
+  bool operator==(const Reservation &other);
 };
+
+std::ostream &operator<<(std::ostream &os, Reservation &r);
 
 #endif /* Reservation.hpp */

@@ -11,7 +11,7 @@
 Car::Car() : plateNumber{to_string(defaultPlateNum)},
              make{"N/A"},
              model{"N/A"},
-             //  vehicleType{coupe},
+             vType{None},
              pricePerDay{100.00},
              isAvailable{true}
 {
@@ -21,7 +21,7 @@ Car::Car() : plateNumber{to_string(defaultPlateNum)},
 Car::Car(string plateNumber) : plateNumber{plateNumber},
                                make{"N/A"},
                                model{"N/A"},
-                               //  vehicleType{coupe},
+                               vType{None},
                                pricePerDay{100.00},
                                isAvailable{true}
 {
@@ -30,16 +30,18 @@ Car::Car(string plateNumber) : plateNumber{plateNumber},
 Car::Car(string plateNumber, string make, string model) : plateNumber{plateNumber},
                                                           make{make},
                                                           model{model},
+                                                          vType{None},
                                                           pricePerDay{100.00},
                                                           isAvailable{true}
 {
 }
 
-Car::Car(string plateNumber, string make, string model, double price) : plateNumber{plateNumber},
-                                                                        make{make},
-                                                                        model{model},
-                                                                        pricePerDay{price},
-                                                                        isAvailable{true}
+Car::Car(string plateNumber, string make, string model, vehicleType vt, double price) : plateNumber{plateNumber},
+                                                                                        make{make},
+                                                                                        model{model},
+                                                                                        vType{vt},
+                                                                                        pricePerDay{price},
+                                                                                        isAvailable{true}
 {
 }
 

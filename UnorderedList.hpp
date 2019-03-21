@@ -3,7 +3,8 @@
 //  UList
 //
 //  Created by Eugene Lymar on 1/30/18.
-//  Copyright © 2018 Eugene Lymar. All rights reserved.
+//  Modified by Marcus Novoa on 3/19/19.
+//  Copyright © 2019 Marcus Novoa. All rights reserved.
 //
 
 #ifndef UNORDEREDLIST_HPP

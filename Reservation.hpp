@@ -22,7 +22,7 @@ public:
   Reservation();
   Reservation(string name, string vehicle);
   ~Reservation() {}
-  string GetInfo()
+  string getInfo()
   {
     cout << "Name: " << this->name << ", ";
     cout << "Rented Vehicle: " << this->vehicleRented;

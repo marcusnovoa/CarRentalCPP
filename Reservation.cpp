@@ -30,6 +30,6 @@ bool Reservation::operator==(const Reservation &other)
 
 std::ostream &operator<<(std::ostream &os, Reservation &r)
 {
-  os << "Reservation: [" << r.GetInfo() << "]";
+  os << "Reservation: [" << r.getInfo() << "]";
   return os;
 }

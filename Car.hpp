@@ -17,39 +17,47 @@ static int defaultPlateNum = 100000;
 
 class Car
 {
-private:
-  string plateNumber; // Key
-  string make;
-  string model;
+public:
   enum vehicleType
   {
-    coupe,
-    sedan,
-    suv,
-    exotic
+    Coupe,
+    Sedan,
+    SUV,
+    Exotic,
+    None
   };
-  double pricePerDay;
-  bool isAvailable;
-
-public:
   Car();
   Car(string plateNumber);
   Car(string plateNumber, string make, string model);
-  Car(string plateNumber, string make, string model, double price);
+  Car(string plateNumber, string make, string model, vehicleType vt, double price);
   ~Car() {}
   string getInfo()
   {
     cout << "Plate Number: " << this->plateNumber << ", ";
     cout << "Make: " << this->make << ", ";
     cout << "Model: " << this->model << ", ";
-    // cout << "Vehicle Type: " << this->vehicleType << ", ";
+    cout << "Vehicle Type: " << this->vType << ", ";
     cout << "Price-per-day: " << this->pricePerDay << ", ";
     cout << "Available: " << (this->isAvailable ? "Yes" : "No");
     return "";
   }
+  static vehicleType getVehicleType()
+  {
+    vehicleType vt;
+    return vt;
+  };
+  bool getAvailability() { return this->isAvailable; }
   void setAvailable(bool);
   bool operator<(const Car &other);
   bool operator==(const Car &other);
+
+private:
+  string plateNumber; // Key
+  string make;
+  string model;
+  vehicleType vType;
+  double pricePerDay;
+  bool isAvailable;
 };
 
 std::ostream &operator<<(std::ostream &os, Car &c);

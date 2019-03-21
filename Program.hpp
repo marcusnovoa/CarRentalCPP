@@ -32,7 +32,7 @@ public:
       cout << "2. Add car to inventory" << endl;
       cout << "3. Remove car from inventory" << endl;
       cout << "4. List all reservations" << endl;
-      cout << "5. Add a reservations" << endl;
+      cout << "5. Add a reservation" << endl;
       cout << "6. Cancel reservation" << endl;
       cout << "7. Exit\n\n";
 

@@ -75,6 +75,9 @@ public:
       case 5:
         addReservation(cl, rl);
         break;
+      case 6:
+        cancelReservation(cl, rl);
+        break;
       case 7:
         cout << "Exiting...\n\n";
         menuActive = false;
@@ -175,6 +178,35 @@ public:
     else
     {
       cout << "Car was not found within the list." << endl;
+    }
+
+    Program<T, T2>::returnToMenu(cl, rl);
+  }
+  static void cancelReservation(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
+  {
+    string name, plate;
+    cout << "Please enter reservation cancellation information:" << endl;
+    cin.ignore();
+    cout << "Full Name: ";
+    getline(cin, name);
+    cout << "Rented Vehicle License Plate Number: ";
+    cin >> plate;
+
+    auto r = new Reservation(name, plate);
+    auto c = new Car(plate);
+
+    // Find Reservation
+    if (rl->GetItem(*r) != nullptr)
+    {
+      auto *car = cl->GetItem(*c);
+      car->setAvailable(true);
+
+      rl->DeleteItem(*r);
+      cout << "Reservation under " << name << " has successfully been cancelled.\n\n";
+    }
+    else
+    {
+      cout << "Reservation was not found within the list." << endl;
     }
 
     Program<T, T2>::returnToMenu(cl, rl);

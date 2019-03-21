@@ -134,19 +134,4 @@ public:
 	}
 };
 
-// template <class T>
-// std::ostream &operator<<(std::ostream &os, UnorderedLinkedList<T> &o)
-// {
-// 	o.ResetList();
-// 	os << "List: [";
-// 	for (int i = 0; i < o.GetLength(); ++i)
-// 	{
-// 		os << "(" << *o.GetNextItem<T>() << ")";
-// 		if (i < o.GetLength() - 1)
-// 			os << ", ";
-// 	}
-// 	os << "]";
-// 	return os;
-// }
-
 #endif /* UnorderedLinkedList_hpp */

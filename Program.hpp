@@ -167,13 +167,13 @@ public:
     if (cl->GetItem(*c) != nullptr)
     {
       cl->DeleteItem(*c);
-      cout << "Car with license plate number " << plate << " has successfully been removed from the list.\n\n";
+      cout << "Car with license plate number " << plate << " has successfully been removed from the list." << endl;
     }
     else
     {
       cout << "Car was not found within the list." << endl;
-      Program<T, T2>::returnToMenu(cl, rl);
     }
+    Program<T, T2>::returnToMenu(cl, rl);
   }
   // static void carsList(UnorderedLinkedList<T> *cl, UnorderedLinkedList<T2> *rl)
   // {
